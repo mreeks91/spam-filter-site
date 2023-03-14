@@ -7,12 +7,23 @@ st.title("Crunch some spam!")
 URL_TEXT =  'https://spamfilterapi-kepp3lctya-uc.a.run.app/api/predict/text'
 URL_FILE = 'https://spamfilterapi-kepp3lctya-uc.a.run.app/api/predict/file'
 
+def confidence_level(prob):
+    if prob < .6:
+        return "somewhat (<60%) confident in this classification"
+    elif prob < .75:
+        return "relatively (between 60% and 75%) confident in this classification"
+    elif prob < .9
+        return "quite (between 75% and 90%) confident in this classification"
+    else:
+        return "very (>90%) confident in this classification"
+
 def display_output(r):
     prediction = 'spam!' if r.json()[0]['pred'] else 'ham.'
     spam_prob = r.json()[0]['spam_probability'] 
     ham_prob = 1 - spam_prob
     pred_prob = spam_prob if prediction=='spam!' else ham_prob
-    st.write(f"## We think this email is {prediction} \n", f"Our model is {pred_prob*100:.2f}% confident in this classification.")
+    confidence = confidence_level(pred_prob)
+    st.write(f"## We think this email is {prediction} \n", f"Our model is {confidence}.")
 
 upload_type = st.selectbox('Choose your input type', ['.eml file upload', 'text entry'])
 
