@@ -12,7 +12,7 @@ def confidence_level(prob):
         return "somewhat (<60%) confident in this classification"
     elif prob < .75:
         return "relatively (between 60% and 75%) confident in this classification"
-    elif prob < .9
+    elif prob < .9:
         return "quite (between 75% and 90%) confident in this classification"
     else:
         return "very (>90%) confident in this classification"
