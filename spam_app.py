@@ -25,7 +25,7 @@ def display_output(r):
     confidence = confidence_level(pred_prob)
     st.write(f"## We think this email is {prediction} \n", f"Our model is {confidence}.")
 
-upload_type = st.selectbox('Choose your input type', ['.eml file upload', 'text entry'])
+upload_type = st.selectbox('Choose your input type', ['text entry','.eml file upload'])
 
 if upload_type == '.eml file upload':
     uploaded_file = st.file_uploader('Upload an email to classify!',['eml'])
