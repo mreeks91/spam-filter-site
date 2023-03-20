@@ -42,5 +42,7 @@ else:
         r = requests.post(URL_TEXT,json = eml)
         display_output(r)
 
+st.write("See more details at https://github.com/zcline91/spam_filter.")
+
 
     
