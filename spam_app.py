@@ -4,8 +4,8 @@ import requests
 
 st.title("Crunch some spam!")
 
-URL_TEXT =  'https://spamfilter.telcontar.info/text'
-URL_FILE = 'https://spamfilter.telcontar.info/file'
+URL_TEXT =  'https://spamfilter.telcontar.info/api/predict/text'
+URL_FILE = 'https://spamfilter.telcontar.info/api/predict/file'
 
 def confidence_level(prob):
     if prob < .6:
